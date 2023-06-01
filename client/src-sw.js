@@ -1,3 +1,4 @@
+// Install requiring 
 const { warmStrategyCache } = require('workbox-recipes');
 const { StaleWhileRevalidate, CacheFirst } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
@@ -6,7 +7,7 @@ const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
-
+// Cache Page
 const pageCache = new CacheFirst({
   cacheName: 'page-cache',
   plugins: [
@@ -26,7 +27,7 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
+// Caching Style,Script, and Worker
 registerRoute(
   ({ request }) => request.destination === 'style' || request.destination === 'script' || request.destination === 'worker',
   new StaleWhileRevalidate({
