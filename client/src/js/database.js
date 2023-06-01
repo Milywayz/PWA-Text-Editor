@@ -14,7 +14,7 @@ const initdb = async () =>
 
   
 
-// Storing the data into the database
+// Export a function we will use to POST to the database.
 export const putDb = async (id, content) => {
   console.log('PUT to the database');
   const jateDb = await openDB('jate', 1);
@@ -25,7 +25,7 @@ export const putDb = async (id, content) => {
   console.log('🚀 - data saved to the database', result);
 };
 
-// Getting from the database
+// Export a function we will use to GET to the database.
 export const getDb = async () => {
   console.log('GET all from the database');
   const jateDb = await openDB('jate', 1);
