@@ -20,11 +20,11 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'TODOs List'
+        title: 'jate List'
       }),
       new InjectManifest({
-        swSrc: './src/sw.js',
-        swDest: 'service-worker.js',
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }), 
       new WebpackPwaManifest({
         name: 'My Progressive Web App',
@@ -33,11 +33,14 @@ module.exports = () => {
         background_color: '#ffffff',
         start_url: './',
         publicPath: './',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        crossorigin: 'use-credentials',
+        fingerprints: false,
+        inject: true, //can be null, use-credentials or anonymous
         icons: [
           {
-            src: path.resolve('assets/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons') // multiple sizes
           }
         ]
       }),
