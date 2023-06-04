@@ -18,6 +18,7 @@ Express was installed on the server side. While Babel plugin and loader, CSS Loa
 ## Usage
 
 ![alt text](./client/src/images/ReadmeImage.png)<br>
+[Click here to see Deployed Application](https://quiet-crag-84253.herokuapp.com/)
 
 ## License
 
